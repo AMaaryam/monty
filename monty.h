@@ -1,12 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
+
+#define _GNU_SOURCE
 #include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
 #include <unistd.h>
-#include <ctype.h>
 #include <string.h>
-#include <fcntl.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdarg.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -19,10 +20,11 @@
  */
 typedef struct stack_s
 {
-	        int n;
+        int n;
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -39,6 +41,7 @@ typedef struct instruction_s
 
 extern stack_t *head;
 typedef void (*op_func)(stack_t **, unsigned int);
+
 /*file operations*/
 void open_file(char *file_name);
 int parse_line(char *buffer, int line_number, int format);
@@ -77,14 +80,5 @@ void err(int error_code, ...);
 void more_err(int error_code, ...);
 void string_err(int error_code, ...);
 void rotr(stack_t **, unsigned int);
-
-#endif
-
-
-
-
-
-
-
 
 #endif
