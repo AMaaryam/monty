@@ -21,7 +21,7 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-typedef struct stack_si
+typedef struct stack_s
 {
 int n;
 struct stack_s *prev;
