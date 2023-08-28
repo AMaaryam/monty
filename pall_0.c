@@ -13,9 +13,13 @@ void pall_stck(stack_t **data, unsigned int numl)
 
 	temp = *data;
 	if (data == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", numl);
+		free_nd();
 		exit(EXIT_FAILURE);
+	}
 
-	while (temp)
+	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;

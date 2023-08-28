@@ -6,13 +6,17 @@
  * @numl: integer
  * Return: void
  */
-void add_newnode(stack_t **NEW_nd,__attribute__((unused)) unsigned int numl)
+void add_newnode(stack_t **NEW_nd, __attribute__((unused)) unsigned int numl)
 {
 	stack_t *temp, *top = NULL;
 
-	if (!NEW_nd || *NEW_nd == NULL)
+	if (NEW_nd == NULL || *NEW_nd == NULL)
+	{
+		fprintf(stderr, "L%d: push integer\n", numl);
+		free_nd();
 		exit(EXIT_FAILURE);
-	if (!top)
+	}
+	if (top == NULL)
 	{
 		top = *NEW_nd;
 		return;
@@ -22,5 +26,3 @@ void add_newnode(stack_t **NEW_nd,__attribute__((unused)) unsigned int numl)
 		top->next = temp;
 		temp->prev = top;
 }
-
-
